@@ -1,0 +1,180 @@
+{#
+/**
+ * @file
+ * Theme override to display a node.
+ *
+ * Available variables:
+ * - node: The node entity with limited access to object properties and methods.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - node.getCreatedTime() will return the node creation timestamp.
+ *   - node.hasField('field_example') returns TRUE if the node bundle includes
+ *     field_example. (This does not indicate the presence of a value in this
+ *     field.)
+ *   - node.isPublished() will return whether the node is published or not.
+ *   Calling other methods, such as node.delete(), will result in an exception.
+ *   See \Drupal\node\Entity\Node for a full list of public properties and
+ *   methods for the node object.
+ * - label: The title of the node.
+ * - content: All node items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - author_picture: The node author user entity, rendered using the "compact"
+ *   view mode.
+ * - metadata: Metadata for this node.
+ * - date: Themed creation date field.
+ * - author_name: Themed author name field.
+ * - url: Direct URL of the current node.
+ * - display_submitted: Whether submission information should be displayed.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - node: The current template type (also known as a "theming hook").
+ *   - node--type-[type]: The current node type. For example, if the node is an
+ *     "Article" it would result in "node--type-article". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - node--view-mode-[view_mode]: The View Mode of the node; for example, a
+ *     teaser would result in: "node--view-mode-teaser", and
+ *     full: "node--view-mode-full".
+ *   The following are controlled through the node publishing options.
+ *   - node--promoted: Appears on nodes promoted to the front page.
+ *   - node--sticky: Appears on nodes ordered above other non-sticky nodes in
+ *     teaser listings.
+ *   - node--unpublished: Appears on unpublished nodes visible only to site
+ *     admins.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - content_attributes: Same as attributes, except applied to the main
+ *   content tag that appears in the template.
+ * - author_attributes: Same as attributes, except applied to the author of
+ *   the node tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ * - view_mode: View mode; for example, "teaser" or "full".
+ * - teaser: Flag for the teaser state. Will be true if view_mode is 'teaser'.
+ * - page: Flag for the full page state. Will be true if view_mode is 'full'.
+ * - readmore: Flag for more state. Will be true if the teaser content of the
+ *   node cannot hold the main body content.
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_node()
+ *
+ */
+#}
+
+<article{{ attributes }}>
+
+  <div class="rounded-lg xs:flex xs:visible hidden h-140 mx-24 sm:mx-auto -mt-12 flex flex-nowrap max-w-3xl bg-white dark:bg-darkgray1 dark:text-white">
+    <div class="absolute rounded-l-lg h-140 w-140">
+      <div class="h-fit">
+      {{ content.field_card_image }}</div>
+    </div>
+    <div class="flex ml-40 w-full">
+      <div class="self-center text-blue-500">
+        <div class="mb-2 text-xl font-bold">{{ content.field_job_title }}</div>
+        <p class="text-base text-gray-700">{{ content.field_job_link }}</p>
+      </div>
+
+      <div class="flex-1 self-center text-right px-6 pt-4 pb-2">
+        <span class="rounded-sm  bg-blue-200 px-4 py-3 divide-solid text-sm font-semibold text-gray-700">
+          <button type="button" ><a href="#">Company Site</a> </button>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mx-5 mt-6 flex h-140 flex-col rounded-lg bg-white dark:bg-darkgray1 dark:text-white xs:hidden">
+    <div class="flex h-10 w-10 -translate-y-5 self-center rounded-lg">
+      {{ content.field_card_image }}
+    </div>
+    <div class="flex flex-col gap-2 text-center">
+      <div class="self-center text-blue-500">
+        <div class="text-xl font-bold">{{ content.field_job_title }}</div>
+        <p class="text-base text-gray-700">{{ content.field_job_link }}</p>
+      </div>
+
+      <div class="self-center">
+          <span class="divide-solid rounded-sm bg-blue-200 px-4 py-3 text-sm font-semibold text-gray-700 dark:bg-darkgray dark:text-bluemane">
+            <button type="button"><a href="#">Company Site</a></button>
+          </span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="rounded-lg mx-5 flex flex-col text-center xs:flex sm:mx-auto mt-6 max-w-3xl bg-white dark:bg-darkgray1 dark:text-white px-3 py-3 text-justify">
+    <div class="mb-5 h-36">
+      <div class="xs:flex xs:justify-between xs:mx-6 mx-6">
+        <div>
+          <div class="pt-8 text-sm text-gray-600"><p>{{ content.field_time_ago }}</p></div>
+          <div class="text-xl font-bold text-left"><p>{{ content.field_job_type }}</p></div>
+          <div class="text-sm text-bluemane"><p>{{ content.field_country }}</p></div>
+        </div>
+        <div class="self-center">
+          <div class="pt-6 pb-2 mx-6">
+            <button class="rounded-sm  bg-bluemane w-full xs:px-4 py-3 divide-solid text-sm font-bold text-white">Apply Now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="dark:text-lighttext mx-6 pt-4">
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+        <h3 class="mt-10 mb-7 text-xl font-bold text-black dark:text-white">Requirements</h3>
+    </div>
+    <div class="mx-6">
+      <div class="dark:text-lighttext">
+      <p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl.</p>
+      </div>
+        <ul class="marker:text-bluemane mt-8 list-inside list-disc">
+          <div class="dark:text-lighttext">
+        <li>Morbi interdum mollis sapien. Sed</li>
+        <li>Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus</li>
+        <li>Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</li>
+        <li>Morbi interdum mollis sapien. Sed</li>
+          </div>
+      </ul>
+    </div>
+    <div class="mx-6">
+      <h3 class="text-lightblack mt-10 mb-7 text-xl font-bold dark:text-white">What You Will Do</h3>
+      <div class="dark:text-lighttext">
+      <p>Sed egestas, ante et vulputate volutpat, eros pede semper est, vitae luctus metus libero eu augue. Morbi purus libero, faucibus adipiscing, commodo quis, gravida id, est. Sed lectus. Praesent elementum hendrerit tortor. Sed semper lorem at felis. Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
+      </div>
+        <div class="mt-3">
+      <ol class="marker:text-bluemane list-inside list-decimal ">
+        <div class="dark:text-lighttext">
+        <li>Morbi interdum mollis sapien. Sed</li>
+        <li>Phasellus lacinia magna a ullamcorper laoreet, lectus arcu pulvinar risus</li>
+        <li>Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus. Suspendisse ac urna. Etiam pellentesque mauris ut lectus.</li>
+        <li>Morbi interdum mollis sapien. Sed</li>
+        </div>
+      </ol>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="mt-12 h-24 px-24 dark:bg-darkgray1 dark:text-white  justify-center items-center text-center bg-white">
+    <div class="p-6 flex justify-between mx-auto max-w-3xl ">
+    <div class="hidden xs:flex xs:visible text-left text-xl font-bold">{{ content.field_job_type }}</div>
+    <div class="hidden xs:flex xs:visible">
+      <button class="divide-solid rounded-sm bg-bluemane xs:px-4 xs:py-3 text-sm font-bold text-white">Apply Now</button>
+    </div>
+      <div class="pt-6 grid grid-cols-1 w-full h-12 xs:hidden">
+        <button class=" rounded-sm bg-bluemane  text-sm font-bold text-white">Apply Now</button>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</article>
+
