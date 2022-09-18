@@ -58,13 +58,13 @@
 
 <div class="bg-lightgrey dark:bg-darkgray  font-kumbh-sans">
 
-    {{ page.navigation }}
+    {{ page.header }}
   <div class="bg-bluemane sm:rounded-bl-100 top-3 bottom-4 h-40 w-full">
     <div class="max-w-full">
       <div class="w-128 h-124 rounded-41 -rotate--35 top-41 absolute -left-72 bg-white opacity-10 mix-blend-normal"></div>
       <div class="rounded-41 -rotate-35 -top-247 absolute left-56 h-72 w-80 bg-white opacity-10 mix-blend-normal"></div>
       <div class="rounded-41 absolute top-12 hidden h-64 w-72 rotate-12 bg-white opacity-10 mix-blend-normal sm:right-28 md:block"></div>
-      <a href="/jobs"><span class="absolute mx-8 mt-14 text-3xl font-bold text-white dark:text-lightgrey">DevJobs</span></a>
+      <div class="w-5/6"><a href="/jobs"><span class="absolute mx-8 mt-14 text-3xl font-bold text-white dark:text-lightgrey">DevJobs</span></a></div>
       <div class="align-right">
 {# moon#}
         <div class="absolute right-2 mx-8 mt-14 text-white cursor-pointer hover:text-purple-400">
@@ -91,6 +91,7 @@
 
   {{ page.content }}
 
+  {{ page.footer }}
 
 
 </div>

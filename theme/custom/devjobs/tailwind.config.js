@@ -44,7 +44,6 @@ module.exports = {
         lighttext: "#9DAEC2",
         lightestblue: "#939BF4",
         lightgray: "#F2F2F2",
-        lightblack: "#19202D",
         darkgray1: "#19202D",
         darkblue: "#19202D",
         darkgray: "#121721",
@@ -68,6 +67,9 @@ module.exports = {
         140: '8.75rem',
         24: '1.5rem',
         90: '21.8rem',
+        340: '350px',
+        228: '228px',
+        50: '50px',
       },
       opacity: {
         10: '.1',

@@ -73,7 +73,7 @@
   <div class="rounded-lg xs:flex xs:visible hidden h-140 mx-24 sm:mx-auto -mt-12 flex flex-nowrap max-w-3xl bg-white dark:bg-darkgray1 dark:text-white">
     <div class="absolute rounded-l-lg h-140 w-140">
       <div class="h-fit">
-      {{ content.field_card_image }}</div>
+      {{ content.field_job_image }}</div>
     </div>
     <div class="flex ml-40 w-full">
       <div class="self-center text-blue-500">
@@ -90,8 +90,8 @@
   </div>
 
   <div class="mx-5 mt-6 flex h-140 flex-col rounded-lg bg-white dark:bg-darkgray1 dark:text-white xs:hidden">
-    <div class="flex h-10 w-10 -translate-y-5 self-center rounded-lg">
-      {{ content.field_card_image }}
+    <div class="flex h-full w-140 -translate-y-5 self-center rounded-lg">
+      {{ content.field_job_image }}
     </div>
     <div class="flex flex-col gap-2 text-center">
       <div class="self-center text-blue-500">
@@ -113,9 +113,9 @@
     <div class="mb-5 h-36">
       <div class="xs:flex xs:justify-between xs:mx-6 mx-6">
         <div>
-          <div class="pt-8 text-sm text-gray-600"><p>{{ content.field_time_ago }}</p></div>
+          <div class="pt-8 text-sm text-gray-600"><p>{{ content.field_time }}</p></div>
           <div class="text-xl font-bold text-left"><p>{{ content.field_job_type }}</p></div>
-          <div class="text-sm text-bluemane"><p>{{ content.field_country }}</p></div>
+          <div class="text-sm text-bluemane"><p>{{ content.field_job_country }}</p></div>
         </div>
         <div class="self-center">
           <div class="pt-6 pb-2 mx-6">
